@@ -9,6 +9,9 @@ class Patient extends Model
 {
     use HasFactory;
     protected $fillable=[
-
+        "firstname",
+        "lastname",
+        "age",
+        "disease-id"
     ];
 }

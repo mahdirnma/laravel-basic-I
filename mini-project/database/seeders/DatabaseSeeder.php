@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Disease;
+use App\Models\Patient;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -14,9 +16,17 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+         Patient::create([
+             'firstname' => 'ali',
+             'lastname' => 'sedighi',
+             'age' => '60',
+             'disease-id' => '1',
+         ]);
+         Disease::create([
+             'title' => 'cold',
+         ]);
+         Disease::create([
+             'title' => 'injury',
+         ]);
     }
 }

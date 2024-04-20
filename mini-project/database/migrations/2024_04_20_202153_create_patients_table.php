@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('patients', function (Blueprint $table) {
             $table->id();
+            $table->string("firstname");
+            $table->string("lastname");
+            $table->integer("age");
+            $table->integer("disease-id");
             $table->timestamps();
         });
     }
