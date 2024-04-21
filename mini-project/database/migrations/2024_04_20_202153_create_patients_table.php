@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string("firstname");
             $table->string("lastname");
             $table->integer("age");
-            $table->integer("disease-id");
+            $table->integer("disease_id");
             $table->timestamps();
         });
     }

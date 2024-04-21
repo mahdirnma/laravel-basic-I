@@ -12,6 +12,6 @@ class Patient extends Model
         "firstname",
         "lastname",
         "age",
-        "disease-id"
+        "disease_id"
     ];
 }

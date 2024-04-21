@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
              'firstname' => 'ali',
              'lastname' => 'sedighi',
              'age' => '60',
-             'disease-id' => '1',
+             'disease_id' => '1',
          ]);
          Disease::create([
              'title' => 'cold',
