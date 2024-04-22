@@ -10,10 +10,10 @@
 <body>
 <form action="/admin/patient/create" method="post">
     @csrf
-    firstname: <input type="text" name="firstname" id="firstname"><br>
-    lastname: <input type="text" name="lastname" id="lastname"><br>
-    age: <input type="number" name="age" id="age"><br>
-    <input type="submit" value="add">
+    firstname: <input type="text" name="firstname" id="firstname" value="{{$patient->firstname}}"><br>
+    lastname: <input type="text" name="lastname" id="lastname" value="{{$patient->lastname}}"><br>
+    age: <input type="number" name="age" id="age" value="{{$patient->age}}"><br>
+    <input type="submit" value="update">
 </form>
 </body>
 </html>

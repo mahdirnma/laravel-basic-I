@@ -33,9 +33,32 @@ class PatientController extends Controller
             "firstname"=>$firstname,
             "lastname"=>$lastname,
             "age"=>$age,
-            "disease_id"=>1,
+            "disease_id"=>1
         ]);
         return redirect("/admin/patient");
     }
-
+    public function delete($id){
+        $patient=Patient::find($id);
+        $patient->delete();
+        return redirect('/admin/patient');
+    }
+    public function update($id){
+        $patient=Patient::find($id);
+        return view('admin.patient.update',[
+            "patient"=>$patient
+        ]);
+    }
+    public function edit($id){
+        $firstname=request("firstname");
+        $lastname=request("lastname");
+        $age=request("age");
+        $patient=Patient::find($id);
+        $patient->update([
+            "firstname"=>$firstname,
+            "lastname"=>$lastname,
+            "age"=>$age,
+            "disease_id"=>1
+        ]);
+        return redirect('/admin/patient');
+    }
 }

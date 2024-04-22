@@ -30,8 +30,20 @@
         <td>{{$patient->lastname}}</td>
         <td>{{$patient->age}}</td>
         <td>{{$patient->disease_id}}</td>
-        <td>edit</td>
-        <td>delete</td>
+        <td>
+            <form action="/admin/patient/{{$patient->id}}/update" method="post">
+                @csrf
+                @method("post")
+                <button>update</button>
+            </form>
+        </td>
+        <td>
+            <form action="/admin/patient/{{$patient->id}}/delete" method="post">
+                @csrf
+                @method("delete")
+                <button>delete</button>
+            </form>
+        </td>
     </tr>
     @endforeach
     </tbody>
