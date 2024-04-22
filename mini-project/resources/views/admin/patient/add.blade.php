@@ -8,21 +8,11 @@
     <title>Document</title>
 </head>
 <body>
-<table border="1">
-    <thead>
-    <tr>
-        <th>id</th>
-        <th>title</th>
-    </tr>
-    </thead>
-    <tbody>
-    @foreach($diseases as $disease)
-    <tr>
-        <td>{{$disease->id}}</td>
-        <td>{{$disease->title}}</td>
-    </tr>
-    @endforeach
-    </tbody>
-</table>
+<form action="/admin/patient/create" method="post">
+    firstname: <input type="text" name="firstname" id="firstname"><br>
+    lastname: <input type="text" name="lastname" id="lastname"><br>
+    age: <input type="number" name="age" id="age"><br>
+    <input type="submit" value="add">
+</form>
 </body>
 </html>
