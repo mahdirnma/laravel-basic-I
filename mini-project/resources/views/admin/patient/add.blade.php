@@ -13,7 +13,23 @@
     firstname: <input type="text" name="firstname" id="firstname"><br>
     lastname: <input type="text" name="lastname" id="lastname"><br>
     age: <input type="number" name="age" id="age"><br>
+    disease: <select name="disease" id="disease">
+        <option value="">select your disease</option>
+    @foreach($diseases as $disease)
+            <option value="{{$disease->id}}">{{$disease->title}}</option>
+        @endforeach
+    </select>
     <input type="submit" value="add">
 </form>
+@if ($errors->any())
+    <div>
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 </body>
 </html>
