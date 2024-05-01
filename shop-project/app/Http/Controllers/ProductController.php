@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ShopProductRequest;
+use App\Http\Requests\StoreProductRequest;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -28,7 +28,7 @@ class ProductController extends Controller
             "categories"=>$categories
         ]);
     }
-    public function create(Request $request){
+    public function create(StoreProductRequest $request){
 //        $title=$request->title;
 //        $description=$request->description;
 //        $category=$request->category_id;
