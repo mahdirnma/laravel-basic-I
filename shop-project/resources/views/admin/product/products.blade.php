@@ -32,7 +32,7 @@
                 </form>
             </td>
             <td>
-                <form action="/admin/products/{{$product->id}}/update" method="post">
+                <form action="/admin/products/{{$product->id}}/update" method="get">
                     @csrf
                     <input type="submit" value="update">
                 </form>
