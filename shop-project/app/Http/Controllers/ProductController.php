@@ -53,10 +53,10 @@ class ProductController extends Controller
             "product"=>$products
         ]);
     }
-    public function edit($id){
-        $title=request("title");
-        $description=request("description");
-        $category=request("category");
+    public function edit(StoreProductRequest $request,$id){
+        $title=$request->title;
+        $description=$request->description;
+        $category=$request->category;
         $products=Product::find($id);
         $products->update([
             "title"=>$title,
