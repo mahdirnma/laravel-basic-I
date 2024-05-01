@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 style="text-align: center">محصولات</h1>
-<a href="/admin/products/add">افزودن محصول</a>
+<a href="/admin/products/add" style="text-decoration: none;color: #0f5ab7;border: 1px solid #0f5ab7;padding: 10px;border-radius: 10px;font-size: 15px">افزودن محصول</a>
 <table border="1" style="text-align: center">
     <caption>products</caption>
     <thead>
@@ -25,8 +25,18 @@
     <tbody>
     @foreach($products as $product)
         <tr>
-            <td>1</td>
-            <td>2</td>
+            <td>
+                <form action="/admin/products/{{$product->id}}/delete" method="post">
+                    @csrf
+                    <input type="submit" value="delete">
+                </form>
+            </td>
+            <td>
+                <form action="/admin/products/{{$product->id}}/update" method="post">
+                    @csrf
+                    <input type="submit" value="update">
+                </form>
+            </td>
             <td>{{$product->description}}</td>
             <td>
                 @foreach($categories as $category)

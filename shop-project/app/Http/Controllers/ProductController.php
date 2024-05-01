@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ShopProductRequest;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -27,7 +28,13 @@ class ProductController extends Controller
             "categories"=>$categories
         ]);
     }
-    public function create(){
+    public function create(Request $request){
+//        $title=$request->title;
+//        $description=$request->description;
+//        $category=$request->category_id;
+        $validation=$request->validate([
+            "description"=>"required"
+        ]);
         $title=request("title");
         $description=request("description");
         $category=request("category");
@@ -38,5 +45,37 @@ class ProductController extends Controller
         ]);
         return redirect("/admin/products");
     }
+    public function update($id){
+        $categories=Category::all();
+        $products=Product::find($id);
+        return view("admin.product.update",[
+            "categories"=>$categories,
+            "product"=>$products
+        ]);
+    }
+    public function edit($id){
+        $title=request("title");
+        $description=request("description");
+        $category=request("category");
+        $products=Product::find($id);
+        $products->update([
+            "title"=>$title,
+            "description"=>$description,
+            "category_id"=>$category
+        ]);
+        return redirect("/admin/products");
+    }
+    public function delete($id){
+        $products=Product::find($id);
+        return view("admin.product.delete",[
+            "product"=>$products
+        ]);
+    }
+    public function remove($id){
+        $products=Product::find($id);
+        $products->delete();
+        return redirect("/admin/products");
+    }
+
 
 }
