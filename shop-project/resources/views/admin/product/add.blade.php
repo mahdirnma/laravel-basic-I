@@ -20,5 +20,15 @@
     توضیحات: <textarea name="description" id="description" cols="10" rows="5"></textarea><br>
     <input type="submit" value="افزودن">
 </form>
+
+@if ($errors->any())
+    <div style="color: red;background-color: lightpink;padding:10px 16px;margin: 10px;border-radius: 10px ">
+        <div>
+            @foreach ($errors->all() as $error)
+                <div>{{ $error }}</div>
+            @endforeach
+        </div>
+    </div>
+@endif
 </body>
 </html>
