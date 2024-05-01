@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,3 +23,9 @@ Route::post('/admin/products/{id}/update', [ProductController::class,"update"]);
 Route::put('/admin/products/{id}/edit', [ProductController::class,"edit"]);
 Route::post('/admin/products/{id}/delete', [ProductController::class,"delete"]);
 Route::get('/admin/products/{id}/remove', [ProductController::class,"remove"]);
+
+Route::get('/admin/categories', [CategoryController::class,"show"]);
+Route::get('/admin/categories/add', [CategoryController::class,"add"]);
+Route::post('/admin/categories/create', [CategoryController::class,"create"]);
+
+
