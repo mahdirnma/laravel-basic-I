@@ -26,5 +26,30 @@ class CategoryController extends Controller
         ]);
         return redirect("/admin/categories");
     }
+    public function update($id){
+        $category=Category::find($id);
+        return view("admin.category.update",[
+            "category"=>$category
+        ]);
+    }
+    public function edit($id){
+        $category=Category::find($id);
+        $title=request("title");
+        $category->update([
+            "title"=>$title
+        ]);
+        return redirect("/admin/categories");
+    }
+    public function delete($id){
+        $category=Category::find($id);
+        return view("admin.category.delete",[
+            "category"=>$category
+        ]);
+    }
+    public function remove($id){
+        $category=Category::find($id);
+        $category->delete();
+        return redirect("/admin/categories");
+    }
 
 }

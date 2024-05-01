@@ -27,5 +27,9 @@ Route::get('/admin/products/{id}/remove', [ProductController::class,"remove"]);
 Route::get('/admin/categories', [CategoryController::class,"show"]);
 Route::get('/admin/categories/add', [CategoryController::class,"add"]);
 Route::post('/admin/categories/create', [CategoryController::class,"create"]);
+Route::post('/admin/categories/{id}/update', [CategoryController::class,"update"]);
+Route::put('/admin/categories/{id}/edit', [CategoryController::class,"edit"]);
+Route::post('/admin/categories/{id}/delete', [CategoryController::class,"delete"]);
+Route::get('/admin/categories/{id}/remove', [CategoryController::class,"remove"]);
 
 
