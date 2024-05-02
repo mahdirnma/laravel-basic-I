@@ -29,15 +29,9 @@ class ProductController extends Controller
         ]);
     }
     public function create(StoreProductRequest $request){
-//        $title=$request->title;
-//        $description=$request->description;
-//        $category=$request->category_id;
-        $validation=$request->validate([
-            "description"=>"required"
-        ]);
-        $title=request("title");
-        $description=request("description");
-        $category=request("category");
+        $title=$request->title;
+        $description=$request->description;
+        $category=$request->category;
         Product::create([
             "title"=>$title,
             "description"=>$description,

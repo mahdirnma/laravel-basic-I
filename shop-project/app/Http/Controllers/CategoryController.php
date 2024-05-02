@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreCategoryRequest;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -19,8 +20,8 @@ class CategoryController extends Controller
     {
         return view("admin.category.add");
     }
-    public function create(){
-        $title=request("title");
+    public function create(StoreCategoryRequest $request){
+        $title=$request->title;
         Category::create([
             "title"=>$title
         ]);
@@ -32,9 +33,9 @@ class CategoryController extends Controller
             "category"=>$category
         ]);
     }
-    public function edit($id){
+    public function edit(StoreCategoryRequest $request,$id){
         $category=Category::find($id);
-        $title=request("title");
+        $title=$request->title;
         $category->update([
             "title"=>$title
         ]);

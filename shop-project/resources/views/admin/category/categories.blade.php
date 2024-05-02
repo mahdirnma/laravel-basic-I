@@ -8,38 +8,53 @@
     <title>categories</title>
 </head>
 <body>
-<h1 style="text-align: center">دسته بندی</h1>
-<a href="/admin/categories/add" style="text-decoration: none;color: #0f5ab7;border: 1px solid #0f5ab7;padding: 10px;border-radius: 10px;font-size: 15px">افزودن دسته بندی</a>
-<table border="1" style="text-align: center;margin-top: 20px">
-    <caption>categories</caption>
-    <thead>
-    <tr>
-        <th>حذف</th>
-        <th>ویرایش</th>
-        <th>عنوان دسته بندی</th>
-        <th>کد</th>
-    </tr>
-    </thead>
-    <tbody>
-    @foreach($categories as $category)
-        <tr>
-            <td>
-                <form action="/admin/categories/{{$category->id}}/delete" method="post">
-                    @csrf
-                    <input type="submit" value="delete">
-                </form>
-            </td>
-            <td>
-                <form action="/admin/categories/{{$category->id}}/update" method="post">
-                    @csrf
-                    <input type="submit" value="update">
-                </form>
-            </td>
-            <td>{{$category->title}}</td>
-            <td>{{$category->id}}</td>
-        </tr>
-    @endforeach
-    </tbody>
-</table>
+<div style="width: 100%;min-height: 90svh;display: flex">
+    <div style="width: 80%">
+        <h1 style="text-align: center">دسته بندی</h1>
+        <a href="/admin/categories/add" style="text-decoration: none;color: #0f5ab7;border: 1px solid #0f5ab7;padding: 10px;border-radius: 10px;font-size: 15px">افزودن دسته بندی</a>
+        <table border="1" style="text-align: center;margin-top: 20px">
+            <caption>categories</caption>
+            <thead>
+            <tr>
+                <th>حذف</th>
+                <th>ویرایش</th>
+                <th>عنوان دسته بندی</th>
+                <th>کد</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach($categories as $category)
+                <tr>
+                    <td>
+                        <form action="/admin/categories/{{$category->id}}/delete" method="post">
+                            @csrf
+                            <input type="submit" value="delete">
+                        </form>
+                    </td>
+                    <td>
+                        <form action="/admin/categories/{{$category->id}}/update" method="get">
+                            @csrf
+                            <input type="submit" value="update">
+                        </form>
+                    </td>
+                    <td>{{$category->title}}</td>
+                    <td>{{$category->id}}</td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
+
+    </div>
+    <div style="background-color: rgba(201,201,201,0.51);width: 20%;text-align: center">
+        <nav>
+            <ul style="list-style: none">
+                <li><a href="/admin/products" style="text-decoration: none;font-size: 30px;font-weight: bold;color: black">محصولات</a></li>
+                <li style="margin-top: 50px"><a href="/admin/categories" style="text-decoration: none;font-size: 30px;font-weight: bold;color: black">دسته بندی</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
 </body>
 </html>

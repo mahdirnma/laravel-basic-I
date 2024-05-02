@@ -8,46 +8,61 @@
     <title>products</title>
 </head>
 <body>
-<h1 style="text-align: center">محصولات</h1>
-<a href="/admin/products/add" style="text-decoration: none;color: #0f5ab7;border: 1px solid #0f5ab7;padding: 10px;border-radius: 10px;font-size: 15px">افزودن محصول</a>
-<table border="1" style="text-align: center">
-    <caption>products</caption>
-    <thead>
-    <tr>
-        <th>حذف</th>
-        <th>ویرایش</th>
-        <th>توضیحات</th>
-        <th>دسته بندی</th>
-        <th>عنوان محصول</th>
-        <th>کد</th>
-    </tr>
-    </thead>
-    <tbody>
-    @foreach($products as $product)
-        <tr>
-            <td>
-                <form action="/admin/products/{{$product->id}}/delete" method="post">
-                    @csrf
-                    <input type="submit" value="delete">
-                </form>
-            </td>
-            <td>
-                <form action="/admin/products/{{$product->id}}/update" method="get">
-                    @csrf
-                    <input type="submit" value="update">
-                </form>
-            </td>
-            <td>{{$product->description}}</td>
-            <td>
-                @foreach($categories as $category)
-                    {{$category->id==$product->category_id?$category->title:""}}
-                @endforeach
-            </td>
-            <td>{{$product->title}}</td>
-            <td>{{$product->id}}</td>
-        </tr>
-    @endforeach
-    </tbody>
-</table>
+
+<div style="width: 100%;min-height: 90svh;display: flex">
+    <div style="width: 80%">
+        <h1 style="text-align: center">محصولات</h1>
+        <a href="/admin/products/add" style="text-decoration: none;color: #0f5ab7;border: 1px solid #0f5ab7;padding: 10px;border-radius: 10px;font-size: 15px">افزودن محصول</a>
+        <table border="1" style="text-align: center">
+            <caption>products</caption>
+            <thead>
+            <tr>
+                <th>حذف</th>
+                <th>ویرایش</th>
+                <th>توضیحات</th>
+                <th>دسته بندی</th>
+                <th>عنوان محصول</th>
+                <th>کد</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach($products as $product)
+                <tr>
+                    <td>
+                        <form action="/admin/products/{{$product->id}}/delete" method="post">
+                            @csrf
+                            <input type="submit" value="delete">
+                        </form>
+                    </td>
+                    <td>
+                        <form action="/admin/products/{{$product->id}}/update" method="get">
+                            @csrf
+                            <input type="submit" value="update">
+                        </form>
+                    </td>
+                    <td>{{$product->description}}</td>
+                    <td>
+                        @foreach($categories as $category)
+                            {{$category->id==$product->category_id?$category->title:""}}
+                        @endforeach
+                    </td>
+                    <td>{{$product->title}}</td>
+                    <td>{{$product->id}}</td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
+    </div>
+    <div style="background-color: rgba(201,201,201,0.51);width: 20%;text-align: center">
+        <nav>
+            <ul style="list-style: none">
+                <li><a href="/admin/products" style="text-decoration: none;font-size: 30px;font-weight: bold;color: black">محصولات</a></li>
+                <li style="margin-top: 50px"><a href="/admin/categories" style="text-decoration: none;font-size: 30px;font-weight: bold;color: black">دسته بندی</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
 </body>
 </html>

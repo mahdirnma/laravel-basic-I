@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreProductRequest extends FormRequest
+class StoreCategoryRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,18 +22,15 @@ class StoreProductRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "title"=>"required|min:3",
-            "description"=>"required",
-            "category"=>"required|integer"
-        ];
-    }
-    public function messages(): array
-    {
-        return [
-            "title.required"=>"title is not valid",
-            "title.min"=>"minimom character is 3",
-            "description.required"=>"description is not valid"
+            "title"=>"required|min:3"
         ];
     }
 
+    public function messages():array
+    {
+        return [
+            "title.required"=>"title is not valid",
+            "title.min"=>"title is to short"
+        ];
+    }
 }
